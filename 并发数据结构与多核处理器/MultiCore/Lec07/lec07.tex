@@ -1,0 +1,12 @@
+\documentclass[UTF8]{ctexart}
+
+\begin{document}
+ 100,对于add在找到相同的key之后，判断值是否相同，相同返回false，不同继续遍历，直到curr.key>key；
+ 对于remove在找到相同的key之后，判断值是否相同，相同移除该项并返回，不同继续遍历，直到curr.key>key;
+ 对于contains判断链表中Node的值是否和想要的值相同，相同返回true，不同继续遍历,直到curr.key>key；
+
+ 118,我们称逻辑上被删除但物理上没有的x为x1，之后被添加的x为x2。
+ 在x1被逻辑删除后，有线程调用add(x2)，插入x2，此时如果x2的插入位置在x1前面，则x1并没有被物理删除，
+ 但contains遍历数组最先找到并返回的是x2；如果x2插入的位置是x1的“后面”，则add中的find会在找到x1后直接进行
+ 物理删除，contains遍历数组也无法找到x1，因此这种情况不会发生。
+\end{document}
